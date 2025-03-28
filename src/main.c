@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdbool.h>
 #include "utils.c"
 #include "user_interactions.c"
