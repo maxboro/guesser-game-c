@@ -7,7 +7,7 @@ int get_guess(){
     int elements_written = scanf("%d", &user_guess);
     if (elements_written == 0){
         fprintf(stderr, "Error: elements_written %d\n", elements_written);
-        return 1;
+        return -1;
     }
     printf("User guess: %d\n", user_guess);
     return user_guess;
