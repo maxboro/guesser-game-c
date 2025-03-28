@@ -1,6 +1,7 @@
 # unity build
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
+CFLAGS =  -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wshadow \
+	-Wnull-dereference -Wdouble-promotion -Wformat=2 -Werror -std=c11
 SRC = src
 TARGET = exec
 
