@@ -62,7 +62,7 @@ void free_set(struct Set* guesses_ptr){
         head_ptr_temp = head_ptr_temp->next_ptr;
         free(to_delete_ptr);
     }
-    
+    guesses_ptr->head_ptr = NULL; 
 }
 
 int test_prev_guesses() {
