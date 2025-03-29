@@ -1,9 +1,12 @@
 #include <stdbool.h>
+#include "prev_guesses.c"
 #include "read_settings.c"
 #include "utils.c"
 #include "user_interactions.c"
 
 int main(){
+    int res = test_prev_guesses();
+    printf("%d\n", res);
     int min_bound;
     int max_bound;
     int n_guesses_allowed;
