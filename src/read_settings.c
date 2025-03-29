@@ -13,6 +13,17 @@ void trim_newline(char *str) {
     }
 }
 
+bool validate_settings(int* min_bound_ptr, int* max_bound_ptr, int* n_guesses_allowed_ptr){
+    if (*min_bound_ptr >= *max_bound_ptr){
+        fprintf(stderr, "Check settings: min_bound should be < max_bound!\n");
+        return false;
+    } else if (*n_guesses_allowed_ptr < 1) {
+        fprintf(stderr, "Check settings: n_guesses_allowed should be >= 1!\n");
+        return false;
+    } 
+    return true;
+}
+
 bool load_settings(int* min_bound_ptr, int* max_bound_ptr, int* n_guesses_allowed_ptr){
 
     // Opening file in reading mode
@@ -52,5 +63,6 @@ bool load_settings(int* min_bound_ptr, int* max_bound_ptr, int* n_guesses_allowe
     printf("min_bound is set to %d\n", *min_bound_ptr);
     printf("max_bound is set to %d\n", *max_bound_ptr);
     printf("n_guesses_allowed is set to %d\n", *n_guesses_allowed_ptr);
-    return true;
+    bool settings_are_ok = validate_settings(min_bound_ptr, max_bound_ptr, n_guesses_allowed_ptr);
+    return settings_are_ok;
 }
