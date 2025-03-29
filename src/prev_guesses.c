@@ -18,26 +18,20 @@ struct Set init_set(){
     return guesses_set;
 }
 
-// struct Node* create_node(int guess_val){
-//     struct Node* new_node_ptr = (struct Node*)malloc(sizeof(struct Node));
-//     if (new_node_ptr == NULL) {
-//         fprintf(stderr, "Memory allocation failed\n");
-//         exit(EXIT_FAILURE);
-//     }
-//     new_node_ptr->guess = guess_val;
-//     new_node_ptr->next_ptr = NULL;
-//     return new_node_ptr;
-// }
+struct Node* create_node(int guess_val){
+    struct Node* new_node_ptr = (struct Node*)malloc(sizeof(struct Node));
+    if (new_node_ptr == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+    new_node_ptr->guess = guess_val;
+    new_node_ptr->next_ptr = NULL;
+    return new_node_ptr;
+}
 
 void add_guess(struct Set* guesses_ptr, int guess_val){
     if (guesses_ptr->head_ptr == NULL){
-        guesses_ptr->head_ptr = (struct Node*)malloc(sizeof(struct Node));
-        if (guesses_ptr->head_ptr == NULL) {
-            fprintf(stderr, "Memory allocation failed\n");
-            exit(EXIT_FAILURE);
-        }
-        guesses_ptr->head_ptr->guess = guess_val;
-        guesses_ptr->head_ptr->next_ptr = NULL;
+        guesses_ptr->head_ptr = create_node(guess_val);
     } else {
         bool is_found = false;
         struct Node* head_ptr_temp = guesses_ptr->head_ptr;
@@ -55,13 +49,7 @@ void add_guess(struct Set* guesses_ptr, int guess_val){
         }
         
         if (!is_found){
-            head_ptr_temp->next_ptr = (struct Node*)malloc(sizeof(struct Node));
-            if (head_ptr_temp->next_ptr == NULL) {
-                fprintf(stderr, "Memory allocation failed\n");
-                exit(EXIT_FAILURE);
-            }
-            head_ptr_temp->next_ptr->guess = guess_val;
-            head_ptr_temp->next_ptr->next_ptr = NULL;
+            head_ptr_temp->next_ptr = create_node(guess_val);
         }
     }
 }
