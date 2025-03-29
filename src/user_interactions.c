@@ -16,7 +16,7 @@ int get_guess(bool* is_error_ptr){
 
 void final_message(bool is_win, bool is_error){
     if (is_error) {
-        printf("Error occured, game is interrupted\n");
+        printf("Error occurred, game is interrupted\n");
     } else {
         printf("Game over: You ");
         if (is_win){
@@ -24,20 +24,5 @@ void final_message(bool is_win, bool is_error){
         } else {
             printf("lost\n");
         }
-    }
-}
-
-void game_cycle(int random_number, bool* is_win_ptr, bool* is_error_ptr){
-    int user_guess = get_guess(is_error_ptr);
-    if (*is_error_ptr){
-        return;
-    }
-
-    printf("Guess is ");
-    if (random_number == user_guess){
-        printf("correct\n");
-        *is_win_ptr = true;
-    } else {
-        printf("not correct\n");
     }
 }
