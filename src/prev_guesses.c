@@ -11,7 +11,7 @@ struct Set {
     struct Node* head_ptr;
 };
 
-struct Set init_set(){
+struct Set init_guesses_set(){
     struct Set guesses_set;
     guesses_set.head_ptr = NULL;
     return guesses_set;
@@ -63,21 +63,4 @@ void free_set(struct Set* guesses_ptr){
         free(to_delete_ptr);
     }
     guesses_ptr->head_ptr = NULL; 
-}
-
-int test_prev_guesses() {
-    struct Set guesses_set = init_set();
-    add_guess(&guesses_set, 8);
-    add_guess(&guesses_set, 9);
-    add_guess(&guesses_set, 10);
-    add_guess(&guesses_set, 8);
-    add_guess(&guesses_set, 8);
-    add_guess(&guesses_set, 9);
-    add_guess(&guesses_set, 10);
-    add_guess(&guesses_set, 11);
-    
-    
-    free_set(&guesses_set);
-
-    return 0;
 }

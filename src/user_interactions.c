@@ -26,18 +26,3 @@ void final_message(bool is_win, bool is_error){
         }
     }
 }
-
-void game_cycle(int random_number, bool* is_win_ptr, bool* is_error_ptr){
-    int user_guess = get_guess(is_error_ptr);
-    if (*is_error_ptr){
-        return;
-    }
-
-    printf("Guess is ");
-    if (random_number == user_guess){
-        printf("correct\n");
-        *is_win_ptr = true;
-    } else {
-        printf("not correct\n");
-    }
-}
